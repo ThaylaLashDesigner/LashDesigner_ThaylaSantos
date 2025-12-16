@@ -1,27 +1,12 @@
-/* ===== TEMA ESCURO ===== */
-:root {
-  --primary-color: #b76e79; /* Rosa pêssego suave, alinhado ao site */
-  --secondary-color: #e8b4bc; /* Rosa claro */
-  --accent-color: #d4a5a5; /* Rosa dourado */
-  --dark-color: #f5edf5; /* Texto claro para fundo escuro */
-  --light-color: #12070b; /* Fundo escuro neutro (sem azul) */
-  --text-color: #f2f2f2; /* Texto claro */
-  --card-bg: #1a0d12; /* Fundo de cards em tom vinho escuro, sem azul */
-  --header-bg: rgba(0, 0, 0, 0.95); /* Cabeçalho preto com transparência */
-  --footer-bg: #000000; /* Fundo do rodapé preto, sem azul */
-  --border-color: #3b101c; /* Bordas em tom vinho escuro */
-  --shadow-color: rgba(0, 0, 0, 0.4); /* Sombras neutras (preto) */
-}
-
 /* Estilos gerais */
 body {
-  background-color: var(--light-color);
-  color: var(--text-color);
+  background: #000000;
+  background: linear-gradient(199deg,rgba(0, 0, 0, 1) 0%, rgba(183, 110, 121, 1) 60%, rgba(0, 0, 0, 1) 100%);
 }
 
 /* Navegação */
 nav {
-  background: var(--header-bg) !important;
+  background: transparent !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
 }
 
@@ -112,7 +97,7 @@ a:hover {
 
 /* Ajustes para o preloader */
 .preloader {
-  background-color: var(--light-color) !important;
+  background-color: transparent !important;
 }
 
 /* Ajustes para o botão de voltar ao topo */
@@ -170,11 +155,11 @@ html, body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--light-color);
   line-height: 1.6;
   color: var(--text-color);
   font-size: 16px;
   scroll-behavior: smooth;
+
 }
 
 .flex-section .text-content p {
@@ -210,7 +195,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--light-color);
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -344,7 +329,7 @@ main {
 }
 
 .section:nth-child(even) {
-  background-color: #fff;
+  background-color: transparent;
 }
 
 /* ===== NAVIGATION ===== */
@@ -353,7 +338,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
+  background: transparent;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   padding: 15px 5%;
@@ -517,7 +502,7 @@ nav ul li a:hover {
 .hero {
   height: 100vh;
   min-height: 600px;
-  background: linear-gradient(135deg, #b76e79 0%, #000000 60%, #000000 100%) !important;
+  background: transparent !important;
   display: flex;
   align-items: center;
   text-align: center;
@@ -762,7 +747,7 @@ nav ul li a:hover {
 }
 
 .section:nth-child(even) {
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .flex-section {
@@ -958,7 +943,7 @@ nav ul li a:hover {
   padding: 2.5rem 0;
   font-size: 0.9rem;
   color: #000000;
-  background: white;
+  background: transparent;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   margin-top: auto; /* Garante que o footer fique no final da página */
 }
@@ -1047,7 +1032,7 @@ main {
     right: -300px;
     width: 300px;
     height: 100vh;
-    background: white;
+    background: transparent;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -1058,6 +1043,11 @@ main {
   
   nav ul.active {
     right: 0;
+    background: #000000 !important;
+  }
+  
+  nav ul.active li a {
+    color: #ffffff !important;
   }
   
   nav ul li a {
@@ -1144,7 +1134,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navbar preta com letras brancas */
 nav {
-  background-color: #000000 !important;
+  background-color: transparent !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -1171,7 +1161,7 @@ nav ul li a::after {
 
 /* Footer preto com texto branco */
 .footer {
-  background-color: #000000 !important;
+  background-color: transparent !important;
   color: #ffffff !important;
   border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
@@ -1182,7 +1172,7 @@ nav ul li a::after {
 
 /* Deixa o mapa encaixado no fundo escuro, mas cards de info mantêm o estilo atual */
 .map-container {
-  background-color: #000000 !important;
+  background-color: transparent !important;
 }
 
 /* =========================
