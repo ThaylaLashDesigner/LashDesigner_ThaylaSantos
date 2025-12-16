@@ -1058,12 +1058,11 @@ main {
   
   nav ul.active {
     right: 0;
+    background: #000000 !important;
   }
   
-  nav ul li a {
-    font-size: 1.1rem;
-    padding: 12px 0;
-    color: var(--dark-color);
+  nav ul.active li a {
+    color: #ffffff !important;
   }
   
   .section {
