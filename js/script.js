@@ -1,161 +1,192 @@
-// Elementos do DOM
-const menuBtn = document.querySelector('.menu-btn');
-const menu = document.getElementById('menu');
-const navLinks = document.querySelectorAll('nav ul li a');
-const body = document.body;
-const backToTopBtn = document.querySelector('.back-to-top');
-const preloader = document.querySelector('.preloader');
+(function () {
+  'use strict';
 
-// Criar overlay para o menu mobile
-const menuOverlay = document.createElement('div');
-menuOverlay.className = 'menu-overlay';
-document.body.appendChild(menuOverlay);
+  // ── Elementos ──
+  const menuBtn     = document.querySelector('.menu-btn');
+  const menu        = document.getElementById('menu');
+  const navLinks    = document.querySelectorAll('nav ul li a');
+  const backToTopBtn = document.querySelector('.back-to-top');
+  const preloader   = document.querySelector('.preloader');
+  const nav         = document.querySelector('nav');
 
-// Toggle menu mobile
-function toggleMenu() {
-  menuBtn.classList.toggle('active');
-  menu.classList.toggle('active');
-  menuOverlay.classList.toggle('active');
-  body.classList.toggle('menu-open');
-  
-  // Adicionar evento de clique no overlay para fechar o menu
-  if (menuOverlay.classList.contains('active')) {
-    menuOverlay.addEventListener('click', closeMenu);
-  } else {
-    menuOverlay.removeEventListener('click', closeMenu);
+  // ── Overlay mobile ──
+  const menuOverlay = document.createElement('div');
+  menuOverlay.className = 'menu-overlay';
+  document.body.appendChild(menuOverlay);
+
+  // ── Menu mobile ──
+  function openMenu() {
+    menuBtn?.classList.add('active');
+    menu?.classList.add('active');
+    menuOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
-}
 
-// Fechar menu
-function closeMenu() {
-  menuBtn.classList.remove('active');
-  menu.classList.remove('active');
-  menuOverlay.classList.remove('active');
-  body.classList.remove('menu-open');
-  menuOverlay.removeEventListener('click', closeMenu);
-}
-
-// Event listeners
-if (menuBtn) {
-  menuBtn.addEventListener('click', toggleMenu);
-}
-
-// Fechar menu ao clicar em um link
-navLinks.forEach(link => {
-  link.addEventListener('click', closeMenu);
-});
-
-// Fechar menu ao redimensionar a tela para desktop
-function handleResize() {
-  if (window.innerWidth > 768) {
-    closeMenu();
+  function closeMenu() {
+    menuBtn?.classList.remove('active');
+    menu?.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    document.body.style.overflow = '';
   }
-}
 
-window.addEventListener('resize', handleResize);
+  menuBtn?.addEventListener('click', () =>
+    menu?.classList.contains('active') ? closeMenu() : openMenu()
+  );
+  menuOverlay.addEventListener('click', closeMenu);
 
-// Efeito de scroll suave para links internos
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    if (targetId === '#') return;
-    
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
+  navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+  });
+
+  // ── Scroll suave para âncoras internas ──
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      e.preventDefault();
       window.scrollTo({
-        top: targetElement.offsetTop - 80,
+        top: target.offsetTop - 80,
         behavior: 'smooth'
       });
-    }
+    });
   });
-});
 
-// Efeito de mudança no header ao rolar
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
+  // ── Header ao rolar ──
+  function onScroll() {
+    // Header
+    nav?.classList.toggle('scrolled', window.scrollY > 50);
+
+    // Botão voltar ao topo
+    backToTopBtn?.classList.toggle('visible', window.pageYOffset > 300);
+
+    // Animações
+    animateOnScroll();
   }
-});
 
-// Inicialização de animações ao rolar
-const animateOnScroll = () => {
-  const elements = document.querySelectorAll('.animate-on-scroll');
-  elements.forEach(element => {
-    const elementPosition = element.getBoundingClientRect().top;
-    const screenPosition = window.innerHeight / 1.3;
-    
-    if (elementPosition < screenPosition) {
-      element.classList.add('animate');
-    }
+  // ── Animações ao rolar ──
+  function animateOnScroll() {
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight / 1.3) {
+        el.classList.add('animate');
+      }
+    });
+  }
+
+  // ── Voltar ao topo ──
+  backToTopBtn?.addEventListener('click', e => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-};
 
-window.addEventListener('scroll', animateOnScroll);
-
-// Mostrar/ocultar botão de voltar ao topo
-const handleScroll = () => {
-  // Atualizar a classe do header ao rolar
-  if (window.scrollY > 50) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
+  // ── Preloader ──
+  function removePreloader() {
+    if (!preloader) return;
+    preloader.style.opacity = '0';
+    setTimeout(() => preloader.style.display = 'none', 500);
   }
 
-  // Mostrar/ocultar botão de voltar ao topo
-  if (window.pageYOffset > 300) {
-    backToTopBtn.classList.add('visible');
-  } else {
-    backToTopBtn.classList.remove('visible');
+  // ── Carrosséis dos Cards ──
+  function initCarousels() {
+    // Carrossel desativado para deixar cada volume com imagem estática.
+    // O código permanece intacto, mas a inicialização não é chamada.
+    const carousels = document.querySelectorAll('[data-carousel]');
+
+    carousels.forEach(function (carousel) {
+      const track  = carousel.querySelector('.carousel-track');
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const dots   = carousel.querySelectorAll('.carousel-dot');
+      const total  = slides.length;
+      if (total === 0) return;
+
+      let current    = 0;
+      let intervalId = null;
+      let isDragging = false;
+      let startX     = 0;
+      let dragOffset = 0;
+
+      /* ─ navegação ─ */
+      function goTo(index) {
+        current = ((index % total) + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('active', i === current);
+        });
+      }
+
+      /* ─ autoplay ─ */
+      function startAutoPlay() {
+        if (intervalId) return;
+        intervalId = setInterval(function () { goTo(current + 1); }, 5000);
+      }
+      function stopAutoPlay() {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+
+      startAutoPlay();
+
+      /* ─ arrastar / swipe ─ */
+      function onDragStart(x) {
+        stopAutoPlay();
+        isDragging  = true;
+        startX      = x;
+        dragOffset  = 0;
+        track.classList.add('dragging');
+      }
+      function onDragMove(x) {
+        if (!isDragging) return;
+        dragOffset = x - startX;
+        track.style.transform =
+          'translateX(calc(' + (-current * 100) + '% + ' + dragOffset + 'px))';
+      }
+      function onDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove('dragging');
+        const threshold = carousel.offsetWidth * 0.22;
+        if      (dragOffset < -threshold) goTo(current + 1);
+        else if (dragOffset >  threshold) goTo(current - 1);
+        else                              goTo(current);
+        dragOffset = 0;
+        startAutoPlay();
+      }
+
+      /* mouse */
+      carousel.addEventListener('mousedown', function (e) { onDragStart(e.clientX); });
+      window  .addEventListener('mousemove', function (e) { onDragMove(e.clientX);  });
+      window  .addEventListener('mouseup',   onDragEnd);
+      carousel.addEventListener('mouseleave', function () { if (isDragging) onDragEnd(); });
+
+      /* touch */
+      carousel.addEventListener('touchstart', function (e) {
+        onDragStart(e.touches[0].clientX);
+      }, { passive: true });
+      carousel.addEventListener('touchmove', function (e) {
+        onDragMove(e.touches[0].clientX);
+      }, { passive: true });
+      carousel.addEventListener('touchend', onDragEnd);
+
+      /* dots clicáveis */
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () {
+          stopAutoPlay();
+          goTo(i);
+          startAutoPlay();
+        });
+      });
+    });
   }
 
-  // Ativar animações ao rolar
-  animateOnScroll();
-};
-
-// Rolar suavemente para o topo
-const scrollToTop = (e) => {
-  e.preventDefault();
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+  // ── Init ──
+  window.addEventListener('load', () => {
+    removePreloader();
+    animateOnScroll();
+    // initCarousels(); // Desativado para manter apenas imagens estáticas nos volumes.
   });
-};
 
-// Inicialização
-const init = () => {
-  // Adiciona classe de carregamento ao body
-  document.body.classList.add('loaded');
-  
-  // Inicializa as animações visíveis na tela
-  animateOnScroll();
-  
-  // Remove o preloader
-  if (preloader) {
-    setTimeout(() => {
-      preloader.style.opacity = '0';
-      setTimeout(() => {
-        preloader.style.display = 'none';
-      }, 500);
-    }, 500);
-  }
-
-  // Adiciona a classe scrolled ao header se a página for rolada no carregamento
-  if (window.scrollY > 50) {
-    nav.classList.add('scrolled');
-  }
-
-  // Adiciona a classe animate-on-scroll aos elementos que devem ser animados
-  document.querySelectorAll('section, .plan-card, .hero-content').forEach((el, index) => {
-    setTimeout(() => {
-      el.classList.add('animate-on-scroll');
-    }, index * 100);
-  });
-};
-
-// Event Listeners
-window.addEventListener('load', init);
-window.addEventListener('scroll', handleScroll);
-backToTopBtn.addEventListener('click', scrollToTop);
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();

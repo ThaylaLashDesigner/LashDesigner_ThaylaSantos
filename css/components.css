@@ -1,0 +1,236 @@
+/* =============================================
+   COMPONENTES — BOTÕES, CARDS DE PLANO
+   ============================================= */
+
+/* ── Botão CTA ── */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(145deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(183, 110, 121, 0.3);
+}
+.cta-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, var(--accent), var(--primary));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  border-radius: 50px;
+}
+.cta-button:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 30px rgba(183, 110, 121, 0.45);
+  color: #fff;
+}
+.cta-button:hover::before { opacity: 1; }
+.cta-button:active         { transform: translateY(1px); }
+
+.cta-button i {
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+.cta-button:hover i { transform: translateX(3px); }
+
+/* Variante hero */
+.hero .cta-button {
+  margin-top: 2rem;
+  padding: 1rem 2.8rem;
+  font-size: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Variante card */
+.plan-card .cta-button {
+  margin-top: 1.5rem;
+  padding: 0.85rem 2rem;
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+/* ── Carrossel dos Cards ── */
+.card-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 0.5rem auto;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+  box-shadow: var(--shadow-sm);
+}
+.card-carousel:active { cursor: grabbing; }
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+.carousel-track.dragging {
+  transition: none;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  flex-shrink: 0;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  display: block;
+}
+
+/* Gradiente sutil na parte inferior para os dots ficarem legíveis */
+.card-carousel::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  background: linear-gradient(to top, rgba(14, 6, 8, 0.65), transparent);
+  pointer-events: none;
+  border-radius: 0 0 10px 10px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  position: absolute;
+  bottom: 9px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, width 0.3s ease;
+  border: 1px solid rgba(183, 110, 121, 0.5);
+  flex-shrink: 0;
+}
+.carousel-dot.active {
+  background: var(--primary);
+  transform: scale(1.25);
+  width: 18px;
+  border-radius: 4px;
+  border-color: var(--primary);
+}
+.carousel-dot:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+/* ── Grid de Planos ── */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 3rem auto 0;
+  padding: 1rem;
+}
+
+.plan-card {
+  background: var(--bg-card);
+  border-radius: 15px;
+  padding: 2.5rem 1.8rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 500px;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  /* Borda gradiente */
+  border: double 2px transparent;
+  background-image:
+    linear-gradient(var(--bg-card), var(--bg-card)),
+    var(--grad-border);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: var(--transition-slow);
+  box-shadow: var(--shadow-md);
+}
+.plan-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(183, 110, 121, 0.25);
+  z-index: 2;
+  background-image:
+    linear-gradient(var(--bg-card), var(--bg-card)),
+    linear-gradient(145deg, var(--primary), var(--accent), var(--secondary));
+  background-size: 200% 200%;
+  animation: gradientBorder 3s ease infinite;
+}
+
+.plan-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  font-family: var(--font-heading);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  letter-spacing: -0.5px;
+}
+.plan-features {
+  font-size: 1rem;
+  line-height: 1.9;
+  text-align: left;
+  margin: 0.5rem 0 1.5rem;
+  width: 100%;
+  color: var(--text);
+  padding: 0 0.5rem;
+  flex-grow: 1;
+}
+.plan-features strong { color: var(--text-heading); }
+
+/* Imagem do card */
+.card-body { 
+  margin: 0.5rem 0; 
+  width: 100%;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card-image {
+  width: 100%;
+  height: 250px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+.card-caption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+}

@@ -1,100 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Localização - Thayla Lash Designer</title>
-    <link rel="stylesheet" href="css/style.css" id="theme-style">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/black.css" id="dark-theme" media="none">
-    <link rel="stylesheet" href="css/local.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Localização — Thayla Santos / Lash Designer</title>
+  <link rel="icon" type="image/png" href="img/logo-thayla.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/local.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body>
-    <!-- Cabeçalho -->
-    <nav>
-        <a href="index.html" class="logo">Thayla Santos / Lash Designer</a>
 
-        <div class="nav-right">
-            <ul id="menu">
-                <li><a href="index.html">Início</a></li>
-                <li>
-                    <button id="themeToggle" class="theme-toggle" aria-label="Alternar tema">
-                        <i class="fas fa-sun"></i>
-                    </button>
-                </li>
-            </ul>
+  <!-- ── Preloader ── -->
+  <div class="preloader" aria-hidden="true">
+    <div class="loader"></div>
+  </div>
 
-            <button class="menu-btn" id="menuBtn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+  <!-- ── Botão Voltar ao Topo ── -->
+  <a href="#" class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- ── Navegação ── -->
+  <nav aria-label="Navegação principal">
+    <a href="index.html" class="logo">Thayla Santos / Lash Designer</a>
+
+    <div class="nav-right">
+      <ul id="menu">
+        <li><a href="index.html">Início</a></li>
+      </ul>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Conteúdo principal ── -->
+  <main class="container" style="padding-top: 100px;">
+
+    <div class="location-info">
+      <h2>Nossa Localização</h2>
+      <p>Estamos em um local de fácil acesso e ambiente aconchegante para melhor atendê-la.</p>
+
+      <div class="location-details">
+        <div>
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Endereço:</strong><br>
+            R. João Gurgel, 267 — Jardim do Carmo<br>
+            Araraquara — SP, 14800-175
+          </div>
         </div>
-    </nav>
-
-    <!-- Conteúdo Principal -->
-    <main class="container" style="padding-top: 100px;">
-        <div class="location-info">
-            <h2>Nossa Localização</h2>
-            <p>Estamos localizados em um local de fácil acesso e ambiente aconchegante para melhor atendê-la.</p>
-            
-            <div class="location-details">
-                <div>
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>Endereço:</strong><br>
-                        R. João Gurgel, 267 - Jardim do Carmo<br>
-                        Araraquara - SP, 14800-175
-                    </div>
-                </div>
-                <div>
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <strong>Telefone/WhatsApp:</strong><br>
-                        (16) 99793-3624
-                    </div>
-                </div>
-                <div>
-                    <i class="far fa-clock"></i>
-                    <div>
-                        <strong>Horário de Atendimento:</strong><br>
-                        Somente com agendamento prévio.
-                    </div>
-                </div>
-            </div>
-            
-            <a href="https://wa.me/5516997933624?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%97"
-            class="cta-button" target="_blank" rel="noopener noreferrer">
-            <span>Agende seu horário</span>
-            <i class="fas fa-calendar-alt"></i>
-          </a>
+        <div>
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong>Telefone / WhatsApp:</strong><br>
+            (16) 99793-3624
+          </div>
         </div>
-
-        <div class="map-container">
-            <!-- Mapa do Google Maps -->
-            <iframe 
-                id="map"
-                frameborder="0" 
-                style="border:0" 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3699.192203156485!2d-48.19282392452294!3d-21.99910071143941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8f3f1f8b3b3b7%3A0x9c3b8b0b0b0b0b0b0!2sR.%20Jo%C3%A3o%20Gurgel%2C%20267%20-%20Jardim%20do%20Carmo%2C%20Araraquara%20-%20SP%2C%2014800-175!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
-                allowfullscreen="" 
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        <div>
+          <i class="far fa-clock"></i>
+          <div>
+            <strong>Horário de Atendimento:</strong><br>
+            Seg a Sáb — somente com agendamento prévio.
+          </div>
         </div>
-    </main>
+      </div>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 Thayla Santos / Lash Designer. Todos os direitos reservados.</p>
-            <p>Desenvolvido com ❤️ para realçar sua beleza</p>
-        </div>
-    </footer>
+      <a href="https://wa.me/5516997933624?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%97"
+        class="cta-button" target="_blank" rel="noopener noreferrer" style="margin-top:1.5rem">
+        <span>Agendar via WhatsApp</span>
+        <i class="fas fa-calendar-alt"></i>
+      </a>
+    </div>
 
-    <!-- Scripts -->
-    <script src="js/script.js"></script>
-    <script src="js/theme.js"></script>
+    <div class="map-container">
+      <iframe
+        id="map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3699.192203156485!2d-48.19282392452294!3d-21.99910071143941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8f3f1f8b3b3b7%3A0x9c3b8b0b0b0b0b0b0!2sR.%20Jo%C3%A3o%20Gurgel%2C%20267%20-%20Jardim%20do%20Carmo%2C%20Araraquara%20-%20SP%2C%2014800-175!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Localização no mapa">
+      </iframe>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 Thayla Santos / Lash Designer. Todos os direitos reservados.</p>
+      <p>Desenvolvido com ❤️ para realçar sua beleza</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+
 </body>
 </html>

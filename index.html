@@ -6,41 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thayla Santos / Lash Designer</title>
   <link rel="icon" type="image/png" href="img/logo-thayla.jpg">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css" id="theme-style">
-  <link rel="stylesheet" href="css/black.css" id="dark-theme" media="none">
+
+  <!-- CSS modular — ordem importa -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
-  <!-- Preloader -->
-  <div class="preloader">
+
+  <!-- ── Preloader ── -->
+  <div class="preloader" aria-hidden="true">
     <div class="loader"></div>
   </div>
 
-  <!-- Botão Voltar ao Topo -->
-  <a href="#" class="back-to-top">
+  <!-- ── Botão Voltar ao Topo ── -->
+  <a href="#" class="back-to-top" aria-label="Voltar ao topo">
     <i class="fas fa-arrow-up"></i>
   </a>
 
-  <nav>
+  <!-- ── Navegação ── -->
+  <nav aria-label="Navegação principal">
     <div class="logo">Thayla Santos / Lash Designer</div>
 
     <div class="nav-right">
       <ul id="menu">
         <li><a href="local.html">Localização</a></li>
-        <li>
-          <button id="themeToggle" class="theme-toggle" aria-label="Alternar tema">
-            <i class="fas fa-sun"></i>
-          </button>
-        </li>
       </ul>
-
-      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -48,28 +51,22 @@
     </div>
   </nav>
 
-
+  <!-- ── Hero ── -->
   <header class="hero">
-    <div class="container" data-aos="fade-up" data-aos-duration="1000">
-      <div class="hero-content">
-        <h1>Onde os olhares ganham vida e glamour</h1>
-        <a href="https://wa.me/5516997933624?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%97"
-          class="cta-button" target="_blank" rel="noopener noreferrer">
-          <span>Agende seu horário</span>
-          <i class="fas fa-calendar-alt"></i>
-        </a>
-
-      </div>
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1>Onde os olhares ganham vida e glamour</h1>
+    </div>
   </header>
 
+  <!-- ── Conteúdo principal ── -->
   <main class="container">
+
+    <!-- Sobre -->
     <section id="sobre" class="section flex-section" aria-labelledby="titulo-sobre">
       <div class="text-content" data-aos="fade-right" data-aos-duration="900">
-        <h2 id="titulo-sobre" class="section-title">
-          PERFIL PROFISSIONAL
-        </h2>
-        <p class="section-text">
-          Olá, meu nome é Thayla Santos tenho 18 anos e sou Lash Designer
+        <h2 id="titulo-sobre">PERFIL PROFISSIONAL</h2>
+        <p>
+          Olá, meu nome é Thayla Santos, tenho 18 anos e sou Lash Designer
           especializada em realçar a beleza natural do olhar.
           Trabalho com técnicas modernas de extensão de cílios,
           sempre priorizando a saúde dos fios, o conforto e o resultado ideal para cada cliente.
@@ -77,28 +74,23 @@
           Será um prazer transformar o seu olhar com elegância e confiança! ✨
         </p>
       </div>
-      <div class="embed-instagram embed-right" aria-label="Instagram Thayla Santos" data-aos="fade-left"
-        data-aos-duration="900">
+      <div class="embed-instagram" aria-label="Foto de Thayla Santos" data-aos="fade-left" data-aos-duration="900">
         <a href="https://www.instagram.com/thaylasantos.lash_" target="_blank" rel="noopener noreferrer">
-          <img src="img/thayla.jpeg" alt="Post do Instagram de Thayla Santos / Lash Designer"
-            style="width: 100%; height: auto; border-radius: 15px;" />
+          <img src="img/thayla.jpeg" alt="Thayla Santos Lash Designer" style="width:100%;height:auto;border-radius:15px;">
         </a>
       </div>
     </section>
 
-    <section id="professor" class="section flex-section" aria-labelledby="titulo-professor">
-      <div class="embed-instagram embed-right" aria-label="Instagram Thayla Santos" data-aos="fade-left"
-        data-aos-duration="900">
+    <!-- Cuidados -->
+    <section id="cuidados" class="section flex-section" aria-labelledby="titulo-cuidados">
+      <div class="embed-instagram" aria-label="Cuidados com cílios" data-aos="fade-left" data-aos-duration="900">
         <a href="https://www.instagram.com/thaylasantos.lash_" target="_blank" rel="noopener noreferrer">
-          <img src="img/intro.jpeg" alt="Post do Instagram de Thayla Santos / Lash Designer"
-            style="width: 100%; height: auto; border-radius: 15px;" />
+          <img src="img/intro.jpeg" alt="Cuidados com extensão de cílios" style="width:100%;height:auto;border-radius:15px;">
         </a>
       </div>
       <div class="text-content" data-aos="fade-right" data-aos-duration="900">
-        <h2 id="titulo-professor" class="section-title">
-          CUIDADOS ESSENCIAIS COM OS CÍLIOS
-        </h2>
-        <p class="section-text">
+        <h2 id="titulo-cuidados">CUIDADOS ESSENCIAIS COM OS CÍLIOS</h2>
+        <p>
           Depois da extensão de cílios, é essencial evitar água,
           vapor e suor nas primeiras 24 horas. Não use produtos oleosos,
           rímel, maquiagem pesada ou curvador, pois tudo isso solta a cola.
@@ -110,6 +102,7 @@
       </div>
     </section>
 
+    <!-- Valores -->
     <section id="planos" class="section" aria-labelledby="titulo-planos" data-aos="fade-up" data-aos-duration="900">
       <h2 id="titulo-planos" class="section-title">VALORES</h2>
       <div class="plans-grid">
@@ -117,131 +110,145 @@
         <article class="plan-card" tabindex="0">
           <h3 class="plan-title">Volume Charme</h3>
           <p class="plan-features">
-            ✔ <strong>Fio - 6D</strong> <br />
-            ✔ <strong>Valor da aplicação R$&nbsp;110,00</strong><br />
-            ✔ <strong>Manutenção R$&nbsp;90,00</strong><br />
+            ✔ <strong>Fio — 6D</strong><br>
+            ✔ <strong>Aplicação: R$&nbsp;110,00</strong><br>
+            ✔ <strong>Manutenção: R$&nbsp;90,00</strong><br>
             ✔ <strong>Manutenção entre 15 e 20 dias; após isso, cobra-se nova aplicação.</strong>
-
           </p>
-
-          <div class="card-body">
-            <img src="img/charme.jpeg" alt="Imagem do plano Volume Charme" class="card-image">
+          <div class="card-carousel" data-carousel>
+            <div class="carousel-track">
+              <img src="img/charme.jpeg"    alt="Volume Charme — foto 1" class="carousel-slide">
+              <!-- <img src="img/img1.jpg"        alt="Volume Charme — foto 2" class="carousel-slide"> -->
+              <!-- <img src="img/img2.jpg"        alt="Volume Charme — foto 3" class="carousel-slide"> -->
+            </div>
+            <!--
+            <div class="carousel-dots">
+              <span class="carousel-dot active"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+            </div>
+            -->
           </div>
-
-          <p class="card-caption">É uma técnica que proporciona um visual volumoso, trazendo leve drama e destaque ao
-            olhar.</p>
-
-          <a href="https://wa.me/5516997933624?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20realizar%20a%20aplica%C3%A7%C3%A3o%20do%20Volume%20Charme%F0%9F%92%97"
+          <p class="card-caption">Técnica que proporciona um visual volumoso, trazendo leve drama e destaque ao olhar.</p>
+          <a href="https://wa.me/5516997933624?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20o%20Volume%20Charme%20%F0%9F%92%97"
             class="cta-button" target="_blank" rel="noopener noreferrer">
-            <span>Agende seu horário</span>
+            <span>Agendar via WhatsApp</span>
             <i class="fas fa-calendar-alt"></i>
           </a>
-
-
         </article>
 
         <article class="plan-card" tabindex="0">
           <h3 class="plan-title">Volume Inglês</h3>
           <p class="plan-features">
-            <strong>✔ Fio - 5D</strong><br>
-            <strong>✔ Valor da aplicação R$&nbsp;90,00</strong><br>
-            <strong>✔ Manutenção R$&nbsp;70,00</strong><br>
-            <strong>✔ Manutenção entre 15 e 20 dias; após isso, cobra-se nova aplicação.</strong>
-
-
+            ✔ <strong>Fio — 5D</strong><br>
+            ✔ <strong>Aplicação: R$&nbsp;90,00</strong><br>
+            ✔ <strong>Manutenção: R$&nbsp;70,00</strong><br>
+            ✔ <strong>Manutenção entre 15 e 20 dias; após isso, cobra-se nova aplicação.</strong>
           </p>
-
-          <div class="card-body">
-            <img src="img/ingles.jpeg" alt="Imagem do plano Volume Inglês" class="card-image">
+          <div class="card-carousel" data-carousel>
+            <div class="carousel-track">
+              <img src="img/ingles.jpeg"    alt="Volume Inglês — foto 1" class="carousel-slide">
+              <!-- <img src="img/img2.jpg"        alt="Volume Inglês — foto 2" class="carousel-slide"> -->
+              <!-- <img src="img/img1.jpg"        alt="Volume Inglês — foto 3" class="carousel-slide"> -->
+            </div>
+            <!--
+            <div class="carousel-dots">
+              <span class="carousel-dot active"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+            </div>
+            -->
           </div>
-
-          <p class="card-caption">Conhecido por sua nauralidade em volume, deixando um olhar sofisticado e maravilhoso.
-          </p>
-
-          <a href="https://wa.me/5516997933624?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20realizar%20a%20aplica%C3%A7%C3%A3o%20do%20Volume%20Ingl%C3%AAs%F0%9F%92%97"
+          <p class="card-caption">Naturalidade em volume, deixando um olhar sofisticado e maravilhoso.</p>
+          <a href="https://wa.me/5516997933624?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20o%20Volume%20Ingl%C3%AAs%20%F0%9F%92%97"
             class="cta-button" target="_blank" rel="noopener noreferrer">
-            <span>Agende seu horário</span>
+            <span>Agendar via WhatsApp</span>
             <i class="fas fa-calendar-alt"></i>
           </a>
-
         </article>
 
         <article class="plan-card" tabindex="0">
           <h3 class="plan-title">Volume Egípcio</h3>
           <p class="plan-features">
-            <strong>✔ Fio - 3D Duple</strong><br>
-            <strong>✔ Valor da aplicação R$&nbsp;90,00</strong><br>
-            <strong>✔ Manutenção R$&nbsp;70,00</strong><br>
-            <strong>✔ Manutenção entre 15 e 20 dias; após isso, cobra-se nova aplicação.</strong>
-
+            ✔ <strong>Fio — 3D Duple</strong><br>
+            ✔ <strong>Aplicação: R$&nbsp;90,00</strong><br>
+            ✔ <strong>Manutenção: R$&nbsp;70,00</strong><br>
+            ✔ <strong>Manutenção entre 15 e 20 dias; após isso, cobra-se nova aplicação.</strong>
           </p>
-
-          <div class="card-body">
-            <img src="img/egipicio.jpeg" alt="Imagem do plano Volume Egípcio" class="card-image">
+          <div class="card-carousel" data-carousel>
+            <div class="carousel-track">
+              <img src="img/egipicio.jpeg"  alt="Volume Egípcio — foto 1" class="carousel-slide">
+              <!-- <img src="img/img1.jpg"        alt="Volume Egípcio — foto 2" class="carousel-slide"> -->
+              <!-- <img src="img/img2.jpg"        alt="Volume Egípcio — foto 3" class="carousel-slide"> -->
+            </div>
+            <!--
+            <div class="carousel-dots">
+              <span class="carousel-dot active"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+            </div>
+            -->
           </div>
-
-          <p class="card-caption">É uma técnica de extensão de cílios que deixa o olhar alongado, elegante e marcante.
-          </p>
-
-          <a href="https://wa.me/5516997933624?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20realizar%20a%20aplica%C3%A7%C3%A3o%20do%20Volume%20Eg%C3%ADpcio%F0%9F%92%97"
+          <p class="card-caption">Técnica de extensão que deixa o olhar alongado, elegante e marcante.</p>
+          <a href="https://wa.me/5516997933624?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20o%20Volume%20Eg%C3%ADpcio%20%F0%9F%92%97"
             class="cta-button" target="_blank" rel="noopener noreferrer">
-            <span>Agende seu horário</span>
+            <span>Agendar via WhatsApp</span>
             <i class="fas fa-calendar-alt"></i>
           </a>
-
         </article>
 
         <article class="plan-card" tabindex="0">
           <h3 class="plan-title">Volume Brasileiro</h3>
           <p class="plan-features">
-            <strong>✔ Fio - 2D y</strong><br>
-            <strong>✔ Valor da aplicação R$&nbsp;100,00</strong><br>
-            <strong>✔ Manutenção R$&nbsp;80,00</strong><br>
-            <strong>✔ Manutenção em até 15 dias; após isso, cobra-se nova aplicação.</strong>
-
+            ✔ <strong>Fio — 2D Y</strong><br>
+            ✔ <strong>Aplicação: R$&nbsp;100,00</strong><br>
+            ✔ <strong>Manutenção: R$&nbsp;80,00</strong><br>
+            ✔ <strong>Manutenção em até 15 dias; após isso, cobra-se nova aplicação.</strong>
           </p>
-
-          <div class="card-body">
-            <img src="img/brasileiro.jpeg" alt="Imagem do plano Volume Brasileiro" class="card-image">
+          <div class="card-carousel" data-carousel>
+            <div class="carousel-track">
+              <img src="img/brasileiro.jpeg" alt="Volume Brasileiro — foto 1" class="carousel-slide">
+              <!-- <img src="img/img2.jpg"         alt="Volume Brasileiro — foto 2" class="carousel-slide"> -->
+              <!-- <img src="img/img1.jpg"         alt="Volume Brasileiro — foto 3" class="carousel-slide"> -->
+            </div>
+            <!--
+            <div class="carousel-dots">
+              <span class="carousel-dot active"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+            </div>
+            -->
           </div>
-
-          <p class="card-caption">O volume brasileiro é delicado e levemente natural, ideal para realçar o olhar sem exagero, proporcionando leve preenchimento e cílios com aparência suave, alinhada e elegante.
-          </p>
-
-          <a href="https://wa.me/5516997933624?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20realizar%20a%20aplica%C3%A7%C3%A3o%20do%20Volume%20Brasileiro%F0%9F%92%97"
+          <p class="card-caption">Delicado e levemente natural, ideal para realçar o olhar sem exagero.</p>
+          <a href="https://wa.me/5516997933624?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20o%20Volume%20Brasileiro%20%F0%9F%92%97"
             class="cta-button" target="_blank" rel="noopener noreferrer">
-            <span>Agende seu horário</span>
+            <span>Agendar via WhatsApp</span>
             <i class="fas fa-calendar-alt"></i>
           </a>
-
         </article>
 
       </div>
     </section>
+
   </main>
 
+  <!-- ── Footer ── -->
   <footer class="footer" role="contentinfo">
     <div class="container">
       <p>© 2025 Thayla Santos / Lash Designer. Todos os direitos reservados.</p>
-      <p>
-        R. Jõao Gurgel, 267 - Jardim do Carmo - Araraquara - SP, 14800-175
-      </p>
-
+      <p>R. João Gurgel, 267 — Jardim do Carmo — Araraquara/SP</p>
       <a href="https://www.instagram.com/thaylasantos.lash_" target="_blank" rel="noopener noreferrer"
         class="footer-instagram">
         <i class="fab fa-instagram"></i>
         <span>@thaylasantos.lash_</span>
       </a>
-
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ once: true, duration: 900 });</script>
   <script src="js/script.js"></script>
-  <script src="js/theme.js"></script>
-  <script>
-    AOS.init();
-  </script>
-</body>
 
+</body>
 </html>
