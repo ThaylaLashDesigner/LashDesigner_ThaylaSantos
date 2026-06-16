@@ -185,7 +185,7 @@
   window.addEventListener('load', () => {
     removePreloader();
     animateOnScroll();
-    // initCarousels(); // Desativado para manter apenas imagens estáticas nos volumes.
+    initCarousels(); 
   });
 
   window.addEventListener('scroll', onScroll, { passive: true });
